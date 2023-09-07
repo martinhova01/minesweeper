@@ -1,0 +1,53 @@
+@startuml
+
+class Square{
+    -revealed: boolean
+    -isBomb: boolean
+    -flagged: boolean
+    -neighborBombs: int 
+
+    + boolean reveal()
+    + boolean flagg()
+}
+
+class Minesweeper{
+    -rows: int
+    -cols: int
+    -bombsLeft: int
+    -finished: boolean
+
+    +void reveal(int row, int col)
+    +void spaceReveal(int row, int col)
+    +void flag(int row, int col)
+    +Square get(int row, int col)
+    +void click(int row, int col)
+    +void spaceClick(int row, int col)
+    +void stopTimer()
+    +void updateTimer()
+    -void win()
+    -void gameOver()
+    -boolean checkWin()
+    -void revealBombs()
+}
+
+class MinesweeperTimer{
+    -timer: Timer
+    -task: TimerTask
+    -time: int
+
+    +void stop()
+}
+
+class MainController{
+    +updateGameGrid()
+    +updateTimer()
+    +handleWin()
+    +handleGameOver()
+}
+
+Minesweeper --> Square : explodedBomb: 1
+Minesweeper --> Square : squares: *
+Minesweeper "listener: 1" -- "timer: 1" MinesweeperTimer
+Minesweeper "game 1" -- "controller: 1 "MainController
+
+@enduml

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.StartNewGameController">
+   <children>
+      <Button fx:id="btnStartGame" layoutX="325.0" layoutY="409.0" mnemonicParsing="false" onAction="#startGame" text="Start Game">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="rbtnEasy" Selected="true" layoutX="178.0" layoutY="120.0" mnemonicParsing="false" onAction="#update" text="Easy">
+         <font>
+            <Font size="18.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="rbtnMedium" layoutX="178.0" layoutY="147.0" mnemonicParsing="false" onAction="#update" text="Medium">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbtnHard" layoutX="178.0" layoutY="174.0" mnemonicParsing="false" onAction="#update" text="Hard">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rbtnExpert" layoutX="178.0" layoutY="201.0" mnemonicParsing="false" onAction="#update" text="Expert">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <Label layoutX="136.0" layoutY="77.0" text="Select difficulty:">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <TextField fx:id="txtRows" layoutX="523.0" layoutY="121.0" text="10" />
+      <Label layoutX="448.0" layoutY="126.0" text="Rows:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="448.0" layoutY="161.0" text="Colums:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="448.0" layoutY="201.0" text="Bombs:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtColums" layoutX="523.0" layoutY="162.0" text="10" />
+      <TextField fx:id="txtBombs" layoutX="523.0" layoutY="202.0" text="10" />
+   </children>
+</AnchorPane>
