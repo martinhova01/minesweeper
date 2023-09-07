@@ -27,3 +27,4 @@ easy,HANNE JIPPPPI,0,17
 easy,martin,0,6
 easy,vg,2,29
 medium,MRH,0,58
+easy,Test,100,100
