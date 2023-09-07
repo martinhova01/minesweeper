@@ -3,8 +3,6 @@ package ui;
 
 import java.io.IOException;
 
-import core.HighScoreEntry;
-import core.HighScoreList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +16,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import persistance.HighScoreEntry;
+import persistance.HighScoreList;
 
 public class HighScoreController {
     

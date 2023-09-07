@@ -1,4 +1,4 @@
-package core;
+package persistance;
 
 import java.util.List;
 

@@ -5,10 +5,6 @@ package ui;
 import java.io.IOException;
 import java.util.Map;
 
-import core.HighScoreEntry;
-import core.HighScoreList;
-import core.Minesweeper;
-import core.Square;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +19,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import model.Minesweeper;
+import model.Square;
+import persistance.HighScoreEntry;
+import persistance.HighScoreList;
 
 public class MainController{
 

@@ -1,4 +1,4 @@
-package core;
+package persistance;
 
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
@@ -43,7 +43,7 @@ public class HighScoreList {
     }
 
     public void writeToFile() throws IOException{
-        FileWriter fileWriter = new FileWriter(new File("src/main/java/core/highscores.txt"));
+        FileWriter fileWriter = new FileWriter(new File("src/main/java/persistance/highscores.txt"));
         String data = "";
         for (HighScoreEntry entry : scores) {
             data += entry.toString() + "\n";

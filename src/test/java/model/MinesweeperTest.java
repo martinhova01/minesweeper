@@ -1,10 +1,10 @@
-package core;
+package model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import core.Minesweeper;
+import model.Minesweeper;
 
 public class MinesweeperTest {
 

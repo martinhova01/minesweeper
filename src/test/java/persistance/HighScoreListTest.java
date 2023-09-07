@@ -1,13 +1,10 @@
-package core;
+package persistance;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-
-import core.HighScoreEntry;
-import core.HighScoreList;
 
 public class HighScoreListTest {
 
