@@ -1,6 +1,5 @@
 package persistance;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -18,33 +17,22 @@ public class HighScoreListTest {
         });
     }
     
-    @Test
-    public void testReadingFromFile(){
-        l = new HighScoreList(10);
-
-        try {
-            l.readFromFile();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        assertFalse(l.getList("easy").size() == 0);
-    }
+    
 
     @Test
     public void testWriteToFile(){
         l = new HighScoreList(10);
 
         try {
-            l.readFromFile();
             HighScoreEntry testEntry = new HighScoreEntry("easy", "Test", 100, 100);
             l.addEntry(testEntry);
-            l.writeToFile();
+            l.writeToFile("testHighscorelist.json");
 
             HighScoreList newList = new HighScoreList(10);
-            newList.readFromFile();
-                //checks if the entry was added and saved to the file
-            assertTrue(newList.contains(new HighScoreEntry("easy", "Test", 100, 100)));
+            newList.readFromFile("testHighscorelist.json");
+
+            assertTrue(newList.getList("easy").size() == 1);
+            assertTrue(newList.contains(testEntry));
 
         } catch (Exception e) {
             e.printStackTrace();

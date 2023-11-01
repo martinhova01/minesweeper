@@ -1,13 +1,17 @@
 package persistance;
 
 import java.io.InputStreamReader;
-import java.io.BufferedReader;
+import java.io.Reader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 
 public class HighScoreList {
@@ -16,12 +20,15 @@ public class HighScoreList {
 
     private List<HighScoreEntry> scores;
 
+    private Gson gson;
+
     public HighScoreList(int limit){
         scores = new ArrayList<>();
         if(limit <= 0){
             throw new IllegalArgumentException("limit cannot be 0 or negative");
         }
         this.limit = limit;
+        this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
     public void addEntry(HighScoreEntry entry){
@@ -42,32 +49,19 @@ public class HighScoreList {
         this.limit = limit;
     }
 
-    public void writeToFile() throws IOException{
-        FileWriter fileWriter = new FileWriter(new File("src/main/java/persistance/highscores.txt"));
-        String data = "";
-        for (HighScoreEntry entry : scores) {
-            data += entry.toString() + "\n";
-        }
+    public void writeToFile(String filename) throws IOException{
+        FileWriter fileWriter = new FileWriter(new File("src/main/java/persistance/" + filename));
+        String data = gson.toJson(scores);
         fileWriter.write(data);
         fileWriter.close();
-        
-
     }
 
-    public void readFromFile() throws IOException{
-        InputStream is = HighScoreList.class.getResourceAsStream("highscores.txt");
-        BufferedReader br = new BufferedReader(new InputStreamReader(is));
-        
-            while(br.ready()){
-                String line = br.readLine();
-                String[] values = line.split(",");
-                String difficulty = values[0];
-                String name = values[1];
-                int minutes = Integer.parseInt(values[2]);
-                int seconds = Integer.parseInt(values[3]);
-                HighScoreEntry newEntry = new HighScoreEntry(difficulty, name, minutes, seconds);
-                this.addEntry(newEntry);
-            }
+    public void readFromFile(String filename) throws IOException{
+       
+        InputStream is = HighScoreList.class.getResourceAsStream(filename);
+        Reader r = new InputStreamReader(is);
+
+        scores = gson.fromJson(r, new TypeToken<List<HighScoreEntry>>() {}.getType());
     }
 
     public int getLimit() {

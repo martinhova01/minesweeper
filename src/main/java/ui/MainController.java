@@ -290,9 +290,9 @@ public class MainController{
         txtName.setText("Score saved");
         txtName.setDisable(true);
         try{
-            highscores.readFromFile();
+            highscores.readFromFile("highscores.json");
             highscores.addEntry(new HighScoreEntry(difficulty, name, minutes, seconds));
-            highscores.writeToFile();
+            highscores.writeToFile("highscores.json");
             
         }
         catch(Exception e){

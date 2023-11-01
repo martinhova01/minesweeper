@@ -59,13 +59,13 @@ public class HighScoreController {
         rbtnEasy.setSelected(true);
 
         try {
-            highScoreList.readFromFile();
+            highScoreList.readFromFile("highscores.json");
         } 
         catch (IOException e) {
             e.printStackTrace();
         }
 
-        for(int i = 0; i < highScoreList.getLimit(); i++){
+        for(int i = 0; i < highScoreList.getList("easy").size(); i++){
             HighScoreEntry entry = highScoreList.getList("easy").get(i);
             createRow(entry, i);
         }

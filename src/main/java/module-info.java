@@ -3,4 +3,6 @@ open module app {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
+    requires com.google.gson;
+
 }
